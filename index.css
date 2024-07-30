@@ -1,0 +1,158 @@
+:root {
+    --box-color: #2C2046;
+    --box-winning: #571f80;
+    --box-color-selected: #3B2C5B;
+    --box-player-option: #201633;
+    --box-gradient-color-dark: #53407B;
+    --box-gradient-color-light: #81759C;
+    --bg-gradient-color-dark: #0D0914;
+    --bg-gradient-color-light: #290A3C;
+    --white: #EFE4F7;
+    --x-color: #148CE3;
+    --o-color: #9237B2;
+    --box-size: 100px;
+    --box-font-size: 40px;
+    --box-option-size: 80px;
+    --box-option-font-size: 35px;
+    --external-link-color: #E85EFF;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    user-select: none;
+    
+    color: var(--white);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(var(--bg-gradient-color-dark), var(--bg-gradient-color-light));
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: "KoHo", sans-serif;
+    font-weight: lighter;
+}
+
+footer a {
+    font-weight: normal;
+    color: var(--external-link-color);
+}
+
+header {
+    display: flex;
+    flex-flow: row;
+    width: 400px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.7rem;
+}
+
+#option-x {
+    order: 1;
+}
+
+#option-title {
+    order: 2;
+}
+
+#option-o {
+    order: 3;
+}
+
+.player-option {
+    width: var(--box-option-size);
+    height: var(--box-option-size);
+    background-color: var(--box-player-option);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--box-option-font-size);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 4px solid var(--box-player-option);
+    opacity: 0.6;
+    transition: border 0.5s, background 0.5s;
+}
+
+.player-option:hover, .player-active {
+    background: linear-gradient(var(--box-player-option), var(--box-player-option)) padding-box,
+                linear-gradient(to bottom, var(--box-gradient-color-dark), var(--box-gradient-color-light)) border-box;
+    border: 4px solid transparent;
+}
+
+.player-active {
+    opacity: 1;
+}
+
+#option-x, .player-x {
+    color: var(--x-color);
+}
+
+#option-o, .player-o {
+    color: var(--o-color);
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, var(--box-size));
+    grid-template-rows: repeat(3, var(--box-size));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+#board .box {
+    background-color: var(--box-color);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--box-font-size);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s background;
+}
+
+#board .box:hover {
+    background-color: var(--box-color-selected);
+}
+
+#restart-instruction {
+    visibility: hidden;
+    cursor: pointer;
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0% {
+        margin-left: 0rem;
+    }
+    25% {
+        margin-left: 0.5rem;
+    }
+    75% {
+        margin-left: -0.5rem;
+    }
+    100% {
+        margin-right: 0rem;
+    }
+}
